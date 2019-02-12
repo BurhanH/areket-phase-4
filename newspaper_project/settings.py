@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # local
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
+    'articles.apps.ArticlesConfig',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,6 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
