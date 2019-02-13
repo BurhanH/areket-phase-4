@@ -3,7 +3,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy
 
-from .models import Article, Comment
+from .models import Article
 
 
 class ArticleListView(ListView):
@@ -48,16 +48,3 @@ class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         obj = self.get_object()
         return obj.author == self.request.user
-
-
-class CommentCreateView(LoginRequiredMixin, CreateView):
-    model = Comment
-    template_name = 'comment_new.html'
-    fields = ['comment', ]
-    login_url = 'login'
-
-    def form_valid(self, form):
-        print(self.args)
-        form.instance.article = self.pk_url_kwarg
-        form.instance.author = self.request.user
-        return super().form_valid(form)
