@@ -12,7 +12,8 @@
             crossorigin="anonymous">
 
             <title>{% block title %}Newspaper App{% endblock title %}</title>
-            <link rel="shortcut icon" type="image/png" href="/static/favicon.ico"/>
+            {% load static %}
+            <link rel="shortcut icon" type="image/png" href="{% static favicon.ico %}"/>
         </head>
         <body>
             <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
