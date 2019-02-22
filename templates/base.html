@@ -1,4 +1,5 @@
 <!doctype html>
+    {% load staticfiles %}
     <html lang="en">
         <head>
             <!-- Required meta tags -->
@@ -12,7 +13,7 @@
             crossorigin="anonymous">
 
             <title>{% block title %}Newspaper App{% endblock title %}</title>
-            {% load static %}
+            
             <link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>
             
         </head>
